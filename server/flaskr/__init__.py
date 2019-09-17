@@ -5,7 +5,7 @@ import pymysql
 
 def get_db():
     if 'db' not in g:
-        g.db = pymysql.connect("aliasMeToDB","viper","viper67","IXPlus")
+        g.db = pymysql.connect("127.0.0.1","viper","viper67","IXPlus")
 
     return g.db
 

@@ -4,7 +4,9 @@ services:
     database:
         image: "mysql:5.7"
         ports:
-            - "33061:3306"
+            - "3306:3306"
+        expose:
+            - "3306"
         command: --init-file /data/application/init.sql
         volumes:
             - ./database/init.sql:/data/application/init.sql
@@ -15,5 +17,9 @@ services:
             MYSQL_USER: viper
             MYSQL_PASSWORD: viper67
     api_server:
+        ports:
+            - "127.0.0.1:5000:5000"
+        expose:
+            - "3306"
         build:
             context: ./server

@@ -8,4 +8,6 @@ COPY . .
 RUN pip install --no-cache-dir -r /usr/src/app/requirement.txt &\
     chmod 777 ./start.sh
 
+RUN pip install Flask
+
 ENTRYPOINT ./start.sh
