@@ -9,8 +9,7 @@ from .form import NewUserForm
 # Create your views here.
 def homepage(request):
 	return render(request=request, 
-				template_name="main/home.html",
-				context={"tutorials": Tutorial.objects.all})
+				template_name="main/home.html")
 
 
 def register(request):
