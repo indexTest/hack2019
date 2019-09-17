@@ -1,12 +1,11 @@
 FROM python:3
 
+RUN mkdir /usr/src/app
 WORKDIR /usr/src/app
 
-#COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+COPY . . 
 
-COPY . .
+RUN pip install --no-cache-dir -r /usr/src/app/requirement.txt &\
+    chmod 777 ./start.sh
 
-RUN pip install --no-cache-dir -r requirements.txt
-
-ENTRYPOINT "start.sh"
+ENTRYPOINT ./start.sh
