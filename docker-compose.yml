@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+    database:
+        image: "mysql:5.7"
+        ports:
+            - "33061:3306"
+        command: --init-file /data/application/init.sql
+        volumes:
+            - ./database/init.sql:/data/application/init.sql
+        environment:
+            MYSQL_ROOT_USER: root
+            MYSQL_ROOT_PASSWORD: viper67
+            MYSQL_DATABASE: IXPlus
+            MYSQL_USER: viper
+            MYSQL_PASSWORD: viper67
+    api_server:
+        build:
+            context: ./server
