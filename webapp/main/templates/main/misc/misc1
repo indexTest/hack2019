@@ -1,0 +1,10 @@
+
+
+{% extends "main/header.html" %}
+{% block content %}
+
+<h1> Misc Page1 </h1>
+<h5> Cookie value for PID: {{cookie_pid}}</h5>
+<h5> Segment: {{seg_info}}</h5>
+
+{% endblock %}

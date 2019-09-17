@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import Tutorial
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from .form import NewUserForm
-from .utils import generate_random_cookie_pid
+from .utils import generate_random_cookie_pid, call_API
+from django.urls import reverse
+import requests
 
 # Create your views here.
 def homepage(request):
@@ -90,24 +92,27 @@ def login_request(request):
 	return render(request, "main/login.html", {"form":form})
 
 
-
-
 # Create your views here.
 def misc1(request):
 	print("misc1 page")
 	cookie_pid = request.COOKIES.get('cookie_pid') 
-	print(f"cookie_pid, {cookie_pid}")
-	
-	response = render(request=request, template_name="main/misc/misc1.html", context={"cookie_pid":cookie_pid})
-	#response.set_cookie(key='cookie_value', value=cookie_value) 
+	seg_info = "Car"
+	print(f"cookie_pid, {cookie_pid}, seg_info, {seg_info}")
+
+	call_API(seg_info, cookie_pid)
+
+	response = render(request=request, template_name="main/misc/misc1", context={'cookie_pid':cookie_pid, 'seg_info': seg_info})
 	return response
 
 # Create your views here.
 def misc2(request):
 	print("misc2 page")
 	cookie_pid = request.COOKIES.get('cookie_pid') 
-	print(f"cookie_pid, {cookie_pid}")
+	seg_info = "Beauty"
+	print(f"cookie_pid, {cookie_pid}, seg_info, {seg_info}")
+
+	call_API(seg_info, cookie_pid)
 	
-	response = render(request=request, template_name="main/misc/misc2.html", context={"cookie_pid":cookie_pid})
+	response = render(request=request, template_name="main/misc/misc2.html", context={'cookie_pid':cookie_pid, 'seg_info': seg_info})
 	#response.set_cookie(key='cookie_value', value=cookie_value) 
 	return response
