@@ -1,0 +1,57 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Foundation for Sites</title>
+        <link rel="stylesheet" href="css/foundation.css">
+        <link rel="stylesheet" href="css/app.css">
+    </head>
+    <body>
+        <!-- <section class="screen active" id="screen_signup">
+            <h1>Signup</h1>
+        </section>
+        <section class="screen" id="screen_information">
+            <h1>Information</h1>
+        </section> -->
+        <section class="screen active" id="screen_app_landing">
+            <h1>App Landing</h1>
+            <button class="hollow button" onclick="controller.startFocusMode();">Focus Mode</button>
+            <button class="hollow button" onclick="controller.startRadarMode();">Radar Mode</button>
+        </section>
+        <section class="screen" id="screen_app_focus">
+            <h1>Find your special someone (we won't judge)</h1>
+            <p id="debug_focus_self"></p>
+            <p id="debug_focus_tgt"></p>
+            <p id="debug_focus_angle"></p>
+        </section>
+        <section class="screen" id="screen_app_radar">
+            <h1>Find a circle of friends (literally)</h1>
+            <p id=""></p>
+        </section>
+
+        <script src="js/vendor/jquery.js"></script>
+        <script src="js/vendor/what-input.js"></script>
+        <script src="js/vendor/foundation.js"></script>
+        <script src="js/vendor/js.cookie.min.js"></script>
+
+        <script src="js/lib/location.js"></script>
+
+        <script src="js/resources/heading.js"></script>
+
+        <script src="js/hooks/heading.js"></script>
+        <script src="js/hooks/location.js"></script>
+
+        <script src="js/data/match.js"></script>
+
+        <script src="js/view/screen.js"></script>
+
+        <script src="js/app/engine.js"></script>
+        <script src="js/app/focus.js"></script>
+        <script src="js/app/radar.js"></script>
+
+        <script src="js/controller.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>
