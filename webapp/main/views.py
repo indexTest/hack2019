@@ -5,14 +5,41 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from .form import NewUserForm
+from .utils import generate_random_cookie_pid
 
 # Create your views here.
 def homepage(request):
-	return render(request=request, 
-				template_name="main/home.html")
+	print("Access home page")
+		
+	if "cookie_pid" in request.COOKIES.keys():
+		cookie_pid = request.COOKIES['cookie_pid']
+		print(f"In home page, cookie_pid {cookie_pid} already exists in cookies")
+	else:
+		cookie_pid = generate_random_cookie_pid()
+		print(f"In home page, cookie_pid {cookie_pid} not exist, will add")
+		
+	
+	response = render(request=request, template_name="main/home.html", context={"cookie_pid":cookie_pid})
+	response.set_cookie('cookie_pid', cookie_pid)
+	return response
+
+
+
+def signup(request):
+	print("In register")
+	cookie_pid = request.COOKIES.get('cookie_pid') 
+	print(cookie_pid)
+
+	response = render(request=request, template_name="main/signup.html", context={"cookie_pid":cookie_pid})
+	return response
+
 
 
 def register(request):
+	print("In register")
+	cookie_pid = request.COOKIES.get('cookie_pid') 
+	print(cookie_pid)
+
 	if request.method == "POST":
 		form = NewUserForm(request.POST)
 		if form.is_valid():
@@ -61,3 +88,26 @@ def login_request(request):
 
 	form = AuthenticationForm()
 	return render(request, "main/login.html", {"form":form})
+
+
+
+
+# Create your views here.
+def misc1(request):
+	print("misc1 page")
+	cookie_pid = request.COOKIES.get('cookie_pid') 
+	print(f"cookie_pid, {cookie_pid}")
+	
+	response = render(request=request, template_name="main/misc/misc1.html", context={"cookie_pid":cookie_pid})
+	#response.set_cookie(key='cookie_value', value=cookie_value) 
+	return response
+
+# Create your views here.
+def misc2(request):
+	print("misc2 page")
+	cookie_pid = request.COOKIES.get('cookie_pid') 
+	print(f"cookie_pid, {cookie_pid}")
+	
+	response = render(request=request, template_name="main/misc/misc2.html", context={"cookie_pid":cookie_pid})
+	#response.set_cookie(key='cookie_value', value=cookie_value) 
+	return response
