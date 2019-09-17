@@ -22,12 +22,12 @@ from django.conf.urls import url
 app_name = "main"
 
 urlpatterns = [
-    path("internet", views.homepage, name="homepage"),
-    path("internet/", views.homepage, name="homepage"),
+    path("", views.homepage, name="homepage"),
+    path("/", views.homepage, name="homepage"),
     # path("internet/register/", views.register, name="register"),
-    path("internet/signup/", views.signup, name="signup"),
+    path("signup/", views.signup, name="signup"),
     # path("internet/logout/", views.logout_request, name="logout"),
     # path("internet/login/", views.login_request, name="login"),
-    path("internet/misc1/", views.misc1, name="misc1"),
-    path("internet/misc2/", views.misc2, name="misc2"),
+    path("misc1/", views.misc1, name="misc1"),
+    path("misc2/", views.misc2, name="misc2"),
 ]

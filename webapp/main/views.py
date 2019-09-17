@@ -114,5 +114,4 @@ def misc2(request):
 	call_API(seg_info, cookie_pid)
 	
 	response = render(request=request, template_name="main/misc/misc2.html", context={'cookie_pid':cookie_pid, 'seg_info': seg_info})
-	#response.set_cookie(key='cookie_value', value=cookie_value) 
 	return response
