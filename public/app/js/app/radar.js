@@ -92,8 +92,8 @@ window.app.radar = (function() {
     exports.addMockMatch = function () {
         match = true;
         newCoord = {
-            longitude: ownCoord.longitude + (Math.random() * 0.02 - 0.01),
-            latitude: ownCoord.latitude + (Math.random() * 0.02 - 0.01)
+            longitude: ownCoord.longitude + (Math.random() * 0.002 - 0.001),
+            latitude: ownCoord.latitude + (Math.random() * 0.002 - 0.001)
         };
 
         tgtCoords.push(newCoord);
@@ -104,8 +104,8 @@ window.app.radar = (function() {
     exports.generateJitter = function () {
         function jitter() {
             for (var c=0 ; c<tgtPins.length ; c++) {
-                latDir = (tgtCoords[c].latitude - ownCoord.latitude)/80;
-                lonDir = (tgtCoords[c].longitude - ownCoord.longitude)/80;
+                latDir = (ownCoord.latitude - tgtCoords[c].latitude)/50;
+                lonDir = (ownCoord.longitude - tgtCoords[c].longitude)/50;
                 tgtCoords[c] = {
                     longitude: tgtCoords[c].longitude + (Math.random() * lonDir - (lonDir/10)),
                     latitude: tgtCoords[c].latitude + (Math.random() * latDir - (latDir/10))
