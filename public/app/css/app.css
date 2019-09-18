@@ -4,7 +4,12 @@ section.screen {
     top: 0;
     left: 0;
     width: 100%;
+    padding: 12px;
     display: none;
+}
+
+section.screen h1 {
+    font-size: 2em;
 }
 
 section.pending-switch {
@@ -15,4 +20,35 @@ section.pending-switch {
 section.active {
     z-index: 2;
     display: inline;
+}
+
+/* components */
+div.cta {
+    position: fixed;
+    bottom: 5%;
+    width: 100%;
+    margin: auto -12px;
+}
+
+.app-logo {
+    width: 100px;
+}
+
+/* app common panel styles */
+section.app {
+    text-align: center;
+    height: 100%;
+}
+
+/* specific screen styles */
+section.signup {
+    background: url(../img/bg_screen_signup.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+section.onboarding {
+    background: url(../img/bg_screen_signup.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }

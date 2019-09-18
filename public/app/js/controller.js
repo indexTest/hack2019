@@ -2,16 +2,19 @@
 var controller = {};
 
 controller.signup = function() {
-    // Generate UUID
-    view.switchScreen('screen_information');
+    var pid = lib.uuid.make();
+    console.log(`Your pid: ${pid}`)
+    Cookies.set('pid', pid);
+
+    view.screen.switchScreen(view.SCREENS.onboarding);
 }
 
 controller.startFocusMode = function () {
-    view.switchScreen(view.SCREENS.app.focus);
+    view.screen.switchScreen(view.SCREENS.app.focus);
     app.engine.start(app.focus);
 }
 
 controller.startRadarMode = function () {
-    view.switchScreen(view.SCREENS.app.radar);
+    view.screen.switchScreen(view.SCREENS.app.radar);
     app.engine.start(app.radar);
 }

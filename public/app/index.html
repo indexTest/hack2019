@@ -9,24 +9,54 @@
         <link rel="stylesheet" href="css/app.css">
     </head>
     <body>
-        <!-- <section class="screen active" id="screen_signup">
-            <h1>Signup</h1>
+        <section class="screen active app signup" id="screen_signup">
+            <h1 class="h1">Find like minded people!</h1>
+            <img class="app-logo" src="img/logo.png">
+            <p style="text-align: justify;">
+                With IX+, we can find people near by who are just like you!
+                By tracking your browsing habits, we will be able to build an accurate profile of you without you lifting a finger.
+                Then, using our advanced algorithms (read: everything is hardcoded), we will fin the perfect person close to you so you can go say hello! 
+            </p>
+
+            <div class="cta">
+                <p>Try IX+ today!</p>
+                <button class="button primary" onclick="controller.signup();">
+                    Sounds awesome, let's get started
+                </button>
+            </div>
         </section>
-        <section class="screen" id="screen_information">
-            <h1>Information</h1>
-        </section> -->
-        <section class="screen active" id="screen_app_landing">
+        <section class="screen app onboarding" id="screen_onboarding">
+            <h1>You're done!</h1>
+            <p>
+                ...or that'd be what we'll say when this is deployed for realsies,
+                since we track your browsing habits through identity providers, a user simply needs to browse 
+                the internet as normal and we'll be able to collect attributes in the background.
+                But because we can't modify production for a hackthon, we have opted to create our own
+                mini "internet" instead.
+                <a target="_blank" rel="noopener noreferrer" href="https://ixplus.club/internet">
+                    Click here to "browse" the "internet", this is a collection of pages for the sole purpose of collecting user data for the demo.
+                </a>
+            </p>
+
+            <div class="cta">
+                <p>When you're down "browsing", click below to go to the app.</p>
+                <button class="button primary" onclick="view.screen.switchScreen(view.SCREENS.app.landing);">
+                    IX+
+                </button>
+            </div>
+        </section>
+        <section class="screen app" id="screen_app_landing">
             <h1>App Landing</h1>
             <button class="hollow button" onclick="controller.startFocusMode();">Focus Mode</button>
             <button class="hollow button" onclick="controller.startRadarMode();">Radar Mode</button>
         </section>
-        <section class="screen" id="screen_app_focus">
+        <section class="screen app" id="screen_app_focus">
             <h1>Find your special someone (we won't judge)</h1>
             <p id="debug_focus_self"></p>
             <p id="debug_focus_tgt"></p>
             <p id="debug_focus_angle"></p>
         </section>
-        <section class="screen" id="screen_app_radar">
+        <section class="screen app" id="screen_app_radar">
             <h1>Find a circle of friends (literally)</h1>
             <p id=""></p>
         </section>
@@ -37,6 +67,7 @@
         <script src="js/vendor/js.cookie.min.js"></script>
 
         <script src="js/lib/location.js"></script>
+        <script src="js/lib/uuid.js"></script>
 
         <script src="js/resources/heading.js"></script>
 

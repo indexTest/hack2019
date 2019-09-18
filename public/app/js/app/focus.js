@@ -26,8 +26,8 @@ window.app.focus = (function() {
     function render() {
         if (match) {
             calculateAngle();
-            $('#debug_focus_self').text('heading: ' + ownHeading + '; coord: ' + JSON.stringify(ownCoord));
-            $('#debug_focus_tgtf').text('groupID: ' + groupID + '; coord: ' + JSON.stringify(tgtCoord) + '; id: ' + tgtId);
+            $('#debug_focus_self').text('heading: ' + ownHeading + '; coord: ' + JSON.stringify({ lon: ownCoord.longitude, lat: ownCoord.latitude }));
+            $('#debug_focus_tgtf').text('groupID: ' + groupID + '; coord: ' + JSON.stringify({ lon: tgtCoord.longitude, lat: tgtCoord.latitude }) + '; id: ' + tgtId);
             $('#debug_focus_angle').text('Calculated angle: ' + relativeAngle);
         } else {
             $('#debug_focus_orientation').text('No match');

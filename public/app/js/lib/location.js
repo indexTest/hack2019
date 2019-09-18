@@ -49,4 +49,4 @@ window.lib.location = (function() {
     }
 
     return exports;
-})()
+})();
