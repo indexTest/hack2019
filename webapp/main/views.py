@@ -35,63 +35,6 @@ def signup(request):
 	response = render(request=request, template_name="main/signup.html", context={"cookie_pid":cookie_pid})
 	return response
 
-
-
-def register(request):
-	print("In register")
-	cookie_pid = request.COOKIES.get('cookie_pid') 
-	print(cookie_pid)
-
-	if request.method == "POST":
-		form = NewUserForm(request.POST)
-		if form.is_valid():
-			print("valid")
-			user = form.save()
-			username = form.cleaned_data.get('username')
-			messages.success(request, f"New Account Created: {username}")
-			login(request, user)
-			messages.info(request, f"You are now logged in as : {username}")
-			return redirect("main:homepage")
-		else:
-			for msg in form.error_messages:
-				messages.error(request, f"{msg}:{form.error_messages}")
-
-	form = NewUserForm
-	return render(request, "main/register.html", context={"form":form})
-
-
-def logout_request(request):
-	logout(request)
-	messages.info(request, "Logged out successfully!")
-	return redirect("main:homepage")
-
-
-
-def login_request(request):
-	if request.method == "POST":
-		form = AuthenticationForm(request, data=request.POST)
-		if form.is_valid():
-			print("valid")
-			username = form.cleaned_data.get('username')
-			password = form.cleaned_data.get('password')
-			for msg in form.error_messages:
-				print(f"username: {username}, password: {password}")
-			user = authenticate(username = username, password = password)	
-			if user is not None:
-				login(request, user)
-				messages.success(request, f"You are now logged in as : {username}")
-				return redirect("main:homepage")
-			else:
-				for msg in form.error_messages:
-					messages.error(request, f"{msg}:{form.error_messages}")
-				messages.error(request, f"invalid username or password")
-		else:
-			messages.error(request, f"invalid username or password")
-
-	form = AuthenticationForm()
-	return render(request, "main/login.html", {"form":form})
-
-
 # Create your views here.
 def misc1(request):
 	print("misc1 page")
@@ -114,4 +57,120 @@ def misc2(request):
 	call_API(seg_info, cookie_pid)
 	
 	response = render(request=request, template_name="main/misc/misc2.html", context={'cookie_pid':cookie_pid, 'seg_info': seg_info})
+	return response
+
+# Create your views here.
+def car(request):
+	print("car page")
+	cookie_pid = request.COOKIES.get('cookie_pid') 
+	seg_info = "Car"
+	print(f"cookie_pid, {cookie_pid}, seg_info, {seg_info}")
+
+	call_API(seg_info, cookie_pid)
+	
+	response = render(request=request, template_name="main/misc/car.html", context={'cookie_pid':cookie_pid, 'seg_info': seg_info})
+	return response
+
+# Create your views here.
+def beauty(request):
+	print("beauty page")
+	cookie_pid = request.COOKIES.get('cookie_pid') 
+	seg_info = "Beauty"
+	print(f"cookie_pid, {cookie_pid}, seg_info, {seg_info}")
+
+	call_API(seg_info, cookie_pid)
+	
+	response = render(request=request, template_name="main/misc/beauty.html", context={'cookie_pid':cookie_pid, 'seg_info': seg_info})
+	#response.set_cookie(key='cookie_value', value=cookie_value) 
+	return response
+
+
+# Create your views here.
+def art(request):
+	print("Art page")
+	cookie_pid = request.COOKIES.get('cookie_pid') 
+	seg_info = "Art"
+	print(f"cookie_pid, {cookie_pid}, seg_info, {seg_info}")
+
+	call_API(seg_info, cookie_pid)
+	
+	response = render(request=request, template_name="main/misc/art.html", context={'cookie_pid':cookie_pid, 'seg_info': seg_info})
+	return response
+
+
+# Create your views here.
+def tech_science(request):
+	print("Tech_Science  page")
+	cookie_pid = request.COOKIES.get('cookie_pid') 
+	seg_info = "Tech_Science"
+	print(f"cookie_pid, {cookie_pid}, seg_info, {seg_info}")
+
+	call_API(seg_info, cookie_pid)
+	
+	response = render(request=request, template_name="main/misc/tech&science.html", context={'cookie_pid':cookie_pid, 'seg_info': seg_info})
+	return response
+
+
+# Create your views here.
+def health(request):
+	print("Health  page")
+	cookie_pid = request.COOKIES.get('cookie_pid') 
+	seg_info = "Health"
+	print(f"cookie_pid, {cookie_pid}, seg_info, {seg_info}")
+
+	call_API(seg_info, cookie_pid)
+	
+	response = render(request=request, template_name="main/misc/health.html", context={'cookie_pid':cookie_pid, 'seg_info': seg_info})
+	return response
+
+
+# Create your views here.
+def entertainment(request):
+	print("entertainment  page")
+	cookie_pid = request.COOKIES.get('cookie_pid') 
+	seg_info = "Entertainment"
+	print(f"cookie_pid, {cookie_pid}, seg_info, {seg_info}")
+
+	call_API(seg_info, cookie_pid)
+	
+	response = render(request=request, template_name="main/misc/entertainment.html", context={'cookie_pid':cookie_pid, 'seg_info': seg_info})
+	return response
+
+
+# Create your views here.
+def business(request):
+	print("entertainment  page")
+	cookie_pid = request.COOKIES.get('cookie_pid') 
+	seg_info = "Entertainment"
+	print(f"cookie_pid, {cookie_pid}, seg_info, {seg_info}")
+
+	call_API(seg_info, cookie_pid)
+
+	response = render(request=request, template_name="main/misc/business.html", context={'cookie_pid':cookie_pid, 'seg_info': seg_info})
+	return response
+
+
+# Create your views here.
+def sports(request):
+	print("Sport  page")
+	cookie_pid = request.COOKIES.get('cookie_pid') 
+	seg_info = "Sports"
+	print(f"cookie_pid, {cookie_pid}, seg_info, {seg_info}")
+
+	call_API(seg_info, cookie_pid)
+	
+	response = render(request=request, template_name="main/misc/sports.html", context={'cookie_pid':cookie_pid, 'seg_info': seg_info})
+	return response
+
+
+# Create your views here.
+def politics(request):
+	print("Politics  page")
+	cookie_pid = request.COOKIES.get('cookie_pid') 
+	seg_info = "Politics"
+	print(f"cookie_pid, {cookie_pid}, seg_info, {seg_info}")
+
+	call_API(seg_info, cookie_pid)
+	
+	response = render(request=request, template_name="main/misc/politics.html", context={'cookie_pid':cookie_pid, 'seg_info': seg_info})
 	return response

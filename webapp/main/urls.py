@@ -24,10 +24,29 @@ app_name = "main"
 urlpatterns = [
     path("", views.homepage, name="homepage"),
     path("/", views.homepage, name="homepage"),
-    path("internet/signup/", views.misc1, name="misc1"),
+
     path("signup/", views.signup, name="signup"),
-    path("misc1/", views.misc1, name="misc1"),
-    path("internet/misc1/", views.misc1, name="misc1"),
-    path("misc2/", views.misc2, name="misc2"),
-    path("internet/misc2/", views.misc2, name="misc2"),
+    path("internet/signup/", views.signup, name="signup"),
+
+    path("car/", views.car, name="car"),
+    path("internet/car/", views.car, name="car"),
+
+    path("beauty/", views.beauty, name="beauty"),
+    path("internet/beauty/", views.beauty, name="beauty"),
+
+    path("art/", views.art, name="art"),
+    path("internet/art/", views.art, name="art"),
+
+    path("tech_science/", views.tech_science, name="tech_science"),
+    path("internet/tech_science/", views.tech_science, name="tech_science"),
+
+    path("health/", views.health, name="health"),
+    path("internet/health/", views.health, name="health"),
+
+    path("entertainment/", views.entertainment, name="entertainment"),
+    path("internet/entertainment/", views.entertainment, name="entertainment"),
+
+    path("sports/", views.sports, name="sports"),
+    path("internet/sports/", views.sports, name="sports"),
+
 ]
