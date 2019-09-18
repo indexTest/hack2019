@@ -92,7 +92,7 @@ window.app.radar = (function() {
     exports.addMockMatch = function () {
         match = true;
         newCoord = {
-            longitude: ownCoord.longitude + (Math.random() * 0.012 - 0.002),
+            longitude: ownCoord.longitude + (Math.random() * 0.011 - 0.001),
             latitude: ownCoord.latitude + (Math.random() * 0.02 - 0.01)
         };
 
