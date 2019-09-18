@@ -23,7 +23,9 @@ app_name = "main"
 
 urlpatterns = [
     path("", views.homepage, name="homepage"),
+    path("internet/", views.homepage, name="homepage"),
     path("/", views.homepage, name="homepage"),
+    path("/internet/", views.homepage, name="homepage"),
 
     path("signup/", views.signup, name="signup"),
     path("internet/signup/", views.signup, name="signup"),
@@ -40,9 +42,9 @@ urlpatterns = [
     path("internet/art/", views.art, name="art"),
     path("internet/internet/art/", views.art, name="art"),
 
-    path("tech_science/", views.tech_science, name="tech_science"),
-    path("internet/tech_science/", views.tech_science, name="tech_science"),
-    path("internet/internet/tech_science/", views.tech_science, name="tech_science"),
+    path("tech/", views.tech, name="tech"),
+    path("internet/tech/", views.tech, name="tech"),
+    path("internet/internet/tech/", views.tech, name="tech"),
 
     path("health/", views.health, name="health"),
     path("internet/health/", views.health, name="health"),
@@ -55,5 +57,13 @@ urlpatterns = [
     path("sports/", views.sports, name="sports"),
     path("internet/sports/", views.sports, name="sports"),
     path("internet/internet/sports/", views.sports, name="sports"),
+
+    path("politics/", views.politics, name="politics"),
+    path("internet/politics/", views.politics, name="politics"),
+    path("internet/internet/politics/", views.politics, name="politics"),
+
+    path("business/", views.business, name="business"),
+    path("internet/business/", views.business, name="business"),
+    path("internet/internet/business/", views.business, name="business"),
 
 ]
