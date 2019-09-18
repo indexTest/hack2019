@@ -107,7 +107,7 @@ def tech_science(request):
 
 	call_API(seg_info, cookie_pid)
 	
-	response = render(request=request, template_name="main/misc/tech&science.html", context={'cookie_pid':cookie_pid, 'seg_info': seg_info})
+	response = render(request=request, template_name="main/misc/tech_science.html", context={'cookie_pid':cookie_pid, 'seg_info': seg_info})
 	return response
 
 

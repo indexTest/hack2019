@@ -30,23 +30,30 @@ urlpatterns = [
 
     path("car/", views.car, name="car"),
     path("internet/car/", views.car, name="car"),
+    path("internet/internet/car/", views.car, name="car"),
 
     path("beauty/", views.beauty, name="beauty"),
     path("internet/beauty/", views.beauty, name="beauty"),
+    path("internet/internet/beauty/", views.beauty, name="beauty"),
 
     path("art/", views.art, name="art"),
     path("internet/art/", views.art, name="art"),
+    path("internet/internet/art/", views.art, name="art"),
 
     path("tech_science/", views.tech_science, name="tech_science"),
     path("internet/tech_science/", views.tech_science, name="tech_science"),
+    path("internet/internet/tech_science/", views.tech_science, name="tech_science"),
 
     path("health/", views.health, name="health"),
     path("internet/health/", views.health, name="health"),
+    path("internet/internet/health/", views.health, name="health"),
 
     path("entertainment/", views.entertainment, name="entertainment"),
     path("internet/entertainment/", views.entertainment, name="entertainment"),
+    path("internet/internet/entertainment/", views.entertainment, name="entertainment"),
 
     path("sports/", views.sports, name="sports"),
     path("internet/sports/", views.sports, name="sports"),
+    path("internet/internet/sports/", views.sports, name="sports"),
 
 ]
