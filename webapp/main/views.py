@@ -5,7 +5,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from .form import NewUserForm
-from .utils import generate_random_pid, call_API
+from .utils import generate_random_cookie_pid, call_API
 from django.urls import reverse
 import requests
 
