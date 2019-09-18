@@ -51,7 +51,7 @@ window.app.radar = (function() {
 
     function addGoogleMapMarker(tgtCoords) {
         var markerCoords = tgtCoords.map(function(e) { return { lat: e.latitude, lng: e.longitude }; });
-        markerCoords.forEach(function(e) { new google.maps.Marker({position: e, map: gMap}); });
+        markerCoords.forEach(function(e) { console.log(e); new google.maps.Marker({position: e, map: gMap}); });
     }
 
     exports.init = function (done) {
@@ -96,8 +96,8 @@ window.app.radar = (function() {
     exports.addMockMatch = function () {
         match = true;
         newCoord = {
-            longitude: ownCoord + 0.01,
-            latitude: ownCoord + 0.01
+            longitude: ownCoord.longitude + (Math.random() * 0.002 - 0.001),
+            latitude: ownCoord.latitude + (Math.random() * 0.002 - 0.001)
         };
 
         addGoogleMapMarker([newCoord]);

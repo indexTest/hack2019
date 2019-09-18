@@ -2,7 +2,7 @@
 window.data = window.data || {};
 window.data.getMatch = function(single, cb) {
     lib.location.get(function(pos) {
-        $.get('http://35.203.62.254:8080/api/getMatcher', {
+        $.get('https://www.ixplus.club/matcher/api/getMatcher', {
             lon: pos.longitude,
             lat: pos.latitude,
             // Endpoint only support single
