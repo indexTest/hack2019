@@ -102,16 +102,19 @@ window.app.radar = (function() {
     }
 
     exports.generateJitter = function () {
-        setInterval(function () {
+        function jitter() {
             for (var c=0 ; c<tgtPins.length ; c++) {
                 tgtCoords[c] = {
-                    longitude: tgtCoords[c].longitude + (Math.random() * 0.0002 - 0.0001),
-                    latitude: tgtCoords[c].latitude + (Math.random() * 0.0002 - 0.0001)
+                    longitude: tgtCoords[c].longitude + (Math.random() * 0.0002 - 0.00017),
+                    latitude: tgtCoords[c].latitude + (Math.random() * 0.0002 - 0.00017)
                 }
                 tgtPins[c].setMap(null);
             }
             tgtPins = addGoogleMapMarker(tgtCoords);
-        }, 1000);
+
+            setTimeout(jitter, 3000 + Math.random()*3000);
+        }
+        jitter();
     }
 
     exports.isSingle = false;
