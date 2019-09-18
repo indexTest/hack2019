@@ -9,10 +9,10 @@ def generate_random_cookie_pid(stringLength=8):
 
 
 
-def call_API(seg_info,cookie_pid):
+def call_API(seg_info,pid):
 	r = requests.get(
 					url = "https://www.ixplus.club/api/addsegment", 
-					params = {'segment':seg_info,'pid':cookie_pid}
+					params = {'segment':seg_info,'pid':pid}
 					)
 	print(f"r.content: {r.content}")
 	return r
