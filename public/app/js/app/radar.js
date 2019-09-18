@@ -76,7 +76,7 @@ window.app.radar = (function() {
                 longitude: data.lon,
                 latitude: data.lat
             })
-            tgtPins.push(addGoogleMapMarker(tgtCoords));
+            tgtPins = tgtPins.concat(addGoogleMapMarker(tgtCoords));
             match = true;
         } else {
             match = false;
@@ -97,7 +97,7 @@ window.app.radar = (function() {
         };
 
         tgtCoords.push(newCoord);
-        tgtPins.push(addGoogleMapMarker([newCoord]));
+        tgtPins = tgtPins.concat(addGoogleMapMarker([newCoord]));
         render();
     }
 
