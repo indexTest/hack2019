@@ -2,12 +2,13 @@
 window.data = window.data || {};
 window.data.getMatch = function(single, cb) {
     lib.location.get(function(pos) {
-        $.get('https://ixplus.club/api/v1/userconnect', {
+        $.get('http://35.203.62.254:8080/api/getMatcher', {
             lon: pos.longitude,
             lat: pos.latitude,
             mode: single ? 'single' : 'multi',
             limit: single ? 1 : 10,
-            threshold: 10
+            threshold: 10,
+            pid: Cookies.get('pid')
         }, cb);
     });
 };
