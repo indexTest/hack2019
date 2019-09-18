@@ -8,7 +8,7 @@ window.data.getMatch = function(single, cb) {
             // Endpoint only support single
             mode: 'single',
             //mode: single ? 'single' : 'multi',
-            limit: single ? 1 : 10,
+            countToReturn: single ? 1 : 10,
             threshold: 10,
             pid: Cookies.get('pid')
         }, cb);
