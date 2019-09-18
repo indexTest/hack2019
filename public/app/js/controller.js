@@ -22,3 +22,8 @@ controller.startRadarMode = function () {
 controller.addMockMatch = function () {
     app.engine.loadedModule.addMockMatch();
 }
+
+controller.promptPid = function () {
+    var newPid = prompt('New pid');
+    Cookies.set('pid', newPid);
+}
