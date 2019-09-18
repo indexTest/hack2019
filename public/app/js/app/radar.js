@@ -104,8 +104,8 @@ window.app.radar = (function() {
     exports.generateJitter = function () {
         function jitter() {
             for (var c=0 ; c<tgtPins.length ; c++) {
-                latDir = (tgtCoords[c].latitude - ownCoord.latitude)/200;
-                lonDir = (tgtCoords[c].longitude - ownCoord.longitude)/200;
+                latDir = Math.max((tgtCoords[c].latitude - ownCoord.latitude)/200, 0.0003);
+                lonDir = Math.max((tgtCoords[c].longitude - ownCoord.longitude)/200, 0.0003);
                 tgtCoords[c] = {
                     longitude: tgtCoords[c].longitude + (Math.random() * latDir - (latDir/10)),
                     latitude: tgtCoords[c].latitude + (Math.random() * lonDir - (lonDir/10))
