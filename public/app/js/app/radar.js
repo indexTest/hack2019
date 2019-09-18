@@ -107,8 +107,8 @@ window.app.radar = (function() {
                 latDir = Math.max((tgtCoords[c].latitude - ownCoord.latitude)/200, 0.0003);
                 lonDir = Math.max((tgtCoords[c].longitude - ownCoord.longitude)/200, 0.0003);
                 tgtCoords[c] = {
-                    longitude: tgtCoords[c].longitude + (Math.random() * latDir - (latDir/10)),
-                    latitude: tgtCoords[c].latitude + (Math.random() * lonDir - (lonDir/10))
+                    longitude: tgtCoords[c].longitude + (Math.random() * lonDir - (lonDir/10)),
+                    latitude: tgtCoords[c].latitude + (Math.random() * latDir - (latDir/10))
                 }
                 tgtPins[c].setMap(null);
             }
