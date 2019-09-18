@@ -25,6 +25,7 @@ urlpatterns = [
     path("", views.homepage, name="homepage"),
     path("/", views.homepage, name="homepage"),
     path("internet/signup/", views.signup, name="signup"),
-    path("internet/signup/misc1/", views.misc1, name="misc1"),
-    path("internet/signup/misc2/", views.misc2, name="misc2"),
+    path("signup/", views.signup, name="signup"),
+    path("signup/misc1/", views.misc1, name="misc1"),
+    path("signup/misc2/", views.misc2, name="misc2"),
 ]
