@@ -1,0 +1,28 @@
+[
+{
+"pid": "mark",
+"lat": 1.0,
+"lon":2.0 
+},
+{
+"pid": "joe",
+"lat": 2.0,
+"lon":2.0 
+},
+{
+"pid": "amie",
+"lat": 3.0,
+"lon":2.0 
+},
+{
+"pid": "shane",
+"lat": 4.0,
+"lon":2.0 
+},
+{
+"pid": "james",
+"lat": 5.0,
+"lon":2.0 
+}
+
+]
