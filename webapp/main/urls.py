@@ -24,6 +24,7 @@ app_name = "main"
 urlpatterns = [
     path("", views.homepage, name="homepage"),
     path("/", views.homepage, name="homepage"),
+    path("internet/signup/", views.misc1, name="misc1"),
     path("signup/", views.signup, name="signup"),
     path("misc1/", views.misc1, name="misc1"),
     path("internet/misc1/", views.misc1, name="misc1"),
