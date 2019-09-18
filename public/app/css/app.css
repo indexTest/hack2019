@@ -34,6 +34,11 @@ div.cta {
     width: 100px;
 }
 
+.map-view {
+    width: 100%;
+    height: 80%;
+}
+
 /* app common panel styles */
 section.app {
     text-align: center;

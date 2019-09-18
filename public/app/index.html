@@ -15,7 +15,7 @@
             <p style="text-align: justify;">
                 With IX+, we can find people near by who are just like you!
                 By tracking your browsing habits, we will be able to build an accurate profile of you without you lifting a finger.
-                Then, using our advanced algorithms (read: everything is hardcoded), we will fin the perfect person close to you so you can go say hello! 
+                Then, using our advanced algorithms (read: everything is hardcoded), we will find the perfect person close to you so you can go say hello! 
             </p>
 
             <div class="cta">
@@ -27,7 +27,7 @@
         </section>
         <section class="screen app onboarding" id="screen_onboarding">
             <h1>You're done!</h1>
-            <p>
+            <p style="text-align: justify;">
                 ...or that'd be what we'll say when this is deployed for realsies,
                 since we track your browsing habits through identity providers, a user simply needs to browse 
                 the internet as normal and we'll be able to collect attributes in the background.
@@ -46,21 +46,26 @@
             </div>
         </section>
         <section class="screen app" id="screen_app_landing">
-            <h1>App Landing</h1>
-            <button class="hollow button" onclick="controller.startFocusMode();">Focus Mode</button>
-            <button class="hollow button" onclick="controller.startRadarMode();">Radar Mode</button>
+            <h1>IX+</h1>
+            <p style="text-align: justify;">
+                Welcome to the app, normally there are normal app related things here but there isn't really anything other than
+                showing you matches so just click the button to do that. Alternatively you can reset your pid
+                <a href="https://ixplus.club/app" onclick="reset();">here</a>. 
+            </p>
+
+            <div class="cta">
+                <button class="hollow button" onclick="controller.startRadarMode();">Find your circle</button>
+            </div>
         </section>
         <section class="screen app" id="screen_app_focus">
-            <h1>Find your special someone (we won't judge)</h1>
-            <p id="debug_focus_self"></p>
-            <p id="debug_focus_tgt"></p>
-            <p id="debug_focus_angle"></p>
+            <h1>Under Construction</h1>
         </section>
         <section class="screen app" id="screen_app_radar">
-            <h1>Find a circle of friends (literally)</h1>
-            <p id=""></p>
+            <h1>Friends near you!</h1>
+            <div id="radar_map" class="map-view"></div>
+            <button class="button tiny hollow" onclick="controller.addMockMatch();">Add a friend (mock data)</button>
         </section>
-
+        
         <script src="js/vendor/jquery.js"></script>
         <script src="js/vendor/what-input.js"></script>
         <script src="js/vendor/foundation.js"></script>
@@ -76,6 +81,7 @@
 
         <script src="js/data/match.js"></script>
 
+        <script src="js/view/radar.js"></script>
         <script src="js/view/screen.js"></script>
 
         <script src="js/app/engine.js"></script>

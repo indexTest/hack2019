@@ -12,18 +12,20 @@ window.app.engine = (function() {
     // Start a new app process, possibly terminating the old one
     exports.start = function (module, done) {
         if (started) { cleanup(); }
-
+        
+        exports.loadedModule = module;
         module.init(function () {
             data.getMatch(module.isSingle, function (data) {
                 module.updateData(data);
             });
-            hooks.heading.on(module.updateHeading);
             hooks.location.on(module.updateLocation);
             started = true;
 
             done && done();
         });
     }
+    
+    exports.loadedModule = null;
 
     return exports;
 })()

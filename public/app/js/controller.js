@@ -18,3 +18,7 @@ controller.startRadarMode = function () {
     view.screen.switchScreen(view.SCREENS.app.radar);
     app.engine.start(app.radar);
 }
+
+controller.addMockMatch = function () {
+    app.engine.loadedModule.addMockMatch();
+}
