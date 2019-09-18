@@ -28,7 +28,7 @@ window.app.radar = (function() {
 
         return function() {
             gMap = new google.maps.Map(dom, {
-                zoom: 17,
+                zoom: 15,
                 center: markerCoord,
                 disableDefaultUI: true
             });
@@ -91,8 +91,8 @@ window.app.radar = (function() {
     exports.addMockMatch = function () {
         match = true;
         newCoord = {
-            longitude: ownCoord.longitude + (Math.random() * 0.002 - 0.001),
-            latitude: ownCoord.latitude + (Math.random() * 0.002 - 0.001)
+            longitude: ownCoord.longitude + (Math.random() * 0.02 - 0.01),
+            latitude: ownCoord.latitude + (Math.random() * 0.02 - 0.01)
         };
 
         addGoogleMapMarker([newCoord]);
