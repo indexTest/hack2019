@@ -44,8 +44,8 @@ window.app.radar = (function() {
         }
     }
 
-    function addGoogleMapMarker(tgtCoords) {
-        var markerCoords = tgtCoords.map(function(e) { return { lat: e.latitude, lng: e.longitude }; });
+    function addGoogleMapMarker(coords) {
+        var markerCoords = coords.map(function(e) { return { lat: e.latitude, lng: e.longitude }; });
         return markerCoords.map(function(e) { return new google.maps.Marker({position: e, map: gMap}); });
     }
 
