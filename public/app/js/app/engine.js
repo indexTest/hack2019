@@ -16,6 +16,7 @@ window.app.engine = (function() {
         exports.loadedModule = module;
         module.init(function () {
             data.getMatch(module.isSingle, function (data) {
+                console.log('debug: matched coords: ' + JSON.stringify(data.matches));
                 module.updateData(data);
             });
             hooks.location.on(module.updateLocation);
