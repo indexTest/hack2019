@@ -6,8 +6,9 @@ window.app.radar = (function() {
     var match = false;
     var ownCoord = null;
     var groupID = null;
-    var tgtCoord = null;
     var tgtId = null;
+    var tgtCoords = [];
+    var tgtPins = [];
 
     var gMap = null;
     var relativeAngle = 0;
@@ -38,14 +39,14 @@ window.app.radar = (function() {
                 map: gMap,
                 icon: {
                     url: "img/you.png"
-                  }
+                }
             });
         }
     }
 
     function addGoogleMapMarker(tgtCoords) {
         var markerCoords = tgtCoords.map(function(e) { return { lat: e.latitude, lng: e.longitude }; });
-        markerCoords.forEach(function(e) { console.log(e); new google.maps.Marker({position: e, map: gMap}); });
+        return markerCoords.map(function(e) { return new google.maps.Marker({position: e, map: gMap}); });
     }
 
     exports.init = function (done) {
@@ -71,11 +72,11 @@ window.app.radar = (function() {
             // The api is only capable of returning one entry, as a not-array
             groupID = data.uuid;
             tgtId = data.pid;
-            tgtCoord = {
+            tgtCoords.push({
                 longitude: data.lon,
                 latitude: data.lat
-            }
-            addGoogleMapMarker([tgtCoord]);
+            })
+            tgtPins.push(addGoogleMapMarker(tgtCoords));
             match = true;
         } else {
             match = false;
@@ -95,8 +96,22 @@ window.app.radar = (function() {
             latitude: ownCoord.latitude + (Math.random() * 0.02 - 0.01)
         };
 
-        addGoogleMapMarker([newCoord]);
+        tgtCoords.push(newCoord);
+        tgtPins.push(addGoogleMapMarker([newCoord]));
         render();
+    }
+
+    exports.generateJitter = function () {
+        setInterval(function () {
+            for (var c=0 ; c<tgtPins.length ; c++) {
+                tgtCoords[c] = {
+                    longitude: tgtCoords[c].longitude + (Math.random() * 0.0002 - 0.0001),
+                    latitude: tgtCoords[c].latitude + (Math.random() * 0.0002 - 0.0001)
+                }
+                tgtPins[c].setMap(null);
+            }
+            tgtPins = addGoogleMapMarker(tgtCoords);
+        }, 1000);
     }
 
     exports.isSingle = false;
