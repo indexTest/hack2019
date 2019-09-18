@@ -4,10 +4,7 @@ window.app.radar = (function() {
     var exports = {};
 
     var match = false;
-
-    var ownHeading = null;
     var ownCoord = null;
-
     var groupID = null;
     var tgtCoord = null;
     var tgtId = null;
@@ -17,12 +14,9 @@ window.app.radar = (function() {
 
     function render() {
         if (match) {
-            //calculateAngle();
-            // $('#debug_focus_self').text('heading: ' + ownHeading + '; coord: ' + JSON.stringify({ lon: ownCoord.longitude, lat: ownCoord.latitude }));
-            // $('#debug_focus_tgtf').text('groupID: ' + groupID + '; coord: ' + JSON.stringify({ lon: tgtCoord.longitude, lat: tgtCoord.latitude }) + '; id: ' + tgtId);
-            // $('#debug_focus_angle').text('Calculated angle: ' + relativeAngle);
+            view.radar.showMap();
         } else {
-            //view.
+            view.radar.showNoData();
         }
     }
 
@@ -73,12 +67,13 @@ window.app.radar = (function() {
     }
 
     exports.updateData = function (data) {
-        if (data.matches) {
-            groupID = data.group;
-            tgtId = data.matches[0].pid;
+        if (data.uuid) {
+            // The api is only capable of returning one entry, as a not-array
+            groupID = data.uuid;
+            tgtId = data.pid;
             tgtCoord = {
-                longitude: data.matches[0].lon,
-                latitude: data.matches[0].lat
+                longitude: data.lon,
+                latitude: data.lat
             }
             addGoogleMapMarker([tgtCoord]);
             match = true;
@@ -101,6 +96,7 @@ window.app.radar = (function() {
         };
 
         addGoogleMapMarker([newCoord]);
+        render();
     }
 
     exports.isSingle = false;

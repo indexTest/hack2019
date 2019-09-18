@@ -33,7 +33,7 @@
                 the internet as normal and we'll be able to collect attributes in the background.
                 But because we can't modify production for a hackthon, we have opted to create our own
                 mini "internet" instead.
-                <a target="_blank" rel="noopener noreferrer" href="https://ixplus.club/internet">
+                <a target="_blank" rel="noopener noreferrer" href="https://www.ixplus.club/internet">
                     Click here to "browse" the "internet", this is a collection of pages for the sole purpose of collecting user data for the demo.
                 </a>
             </p>
@@ -50,8 +50,8 @@
             <p style="text-align: justify;">
                 Welcome to the app, normally there are normal app related things here but there isn't really anything other than
                 showing you matches so just click the button to do that. Alternatively you can reset your pid
-                <a href="https://ixplus.club/app" onclick="reset();">here</a> or modify it 
-                <a href="https://ixplus.club/app" onclick="controller.promptPid();">here</a>.
+                <a href="https://www.ixplus.club/app" onclick="reset();">here</a> or modify it 
+                <a href="https://www.ixplus.club/app" onclick="controller.promptPid();">here</a>.
             </p>
 
             <div class="cta">
@@ -64,6 +64,15 @@
         <section class="screen app" id="screen_app_radar">
             <h1>Friends near you!</h1>
             <div id="radar_map" class="map-view"></div>
+            <div id="radar_no_data" class="map-view">
+                <p>
+                    Hmm, looks like we don't know enough about you to make a confident recommendation.
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.ixplus.club/internet">
+                        Try "browsing" the "internet" a bit more and try again
+                    </a>. It's also possible that there just aren't anyone around you currently (try walking around).
+                    <button class="button primary" onclick="controller.startRadarMode();">Try again</button>
+                </p>
+            </div>
             <br />
             <button class="button tiny hollow" onclick="controller.addMockMatch();">Add a friend (mock data)</button>
         </section>
